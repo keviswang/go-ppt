@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Golang介绍</title>
+
+		<link rel="stylesheet" href="http://cdn.staticfile.org/reveal.js/3.3.0/css/reveal.css">
+		<link rel="stylesheet" href="http://cdn.staticfile.org/reveal.js/3.3.0/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="http://cdn.staticfile.org/reveal.js/3.3.0/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1 style="text-transform: none;">Golang介绍</h1>
+					<p>
+						<small>2017.2.14 @NBCB</small>
+					</p>
+				</section>
+
+				<section>
+				    <h2 style="text-transform: none;">Agenda</h3>
+					<ul>
+						<li>Go概述</li>
+						<li>Go特性与JAVA差异</li>
+						<li>Go的生态</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h3 style="text-transform: none;">1. 概述</h3>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">Timeline </h4>
+						<ul>
+							<li>2007 年 9 月 21 日：雏形设计</li>
+							<li>2009 年 11 月 10日：首次公开发布</li>
+							<li>2010 年 5 月起：Google正式投入实际开发中</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">Design Note</h4>
+						<img src="images/go.png">
+					</section>
+
+					<section>
+						<p>Go is not meant to innovate programming theory. </p>
+						<p>It’s meant to innovate programming practice.</p>
+					</section>
+
+					<section>
+						<h4>版本开发流程</h4>
+						<ul>
+							<li>半年发布一个主要版本</li>
+							<li>发布时间：8月1号和2月1号</li>
+							<li>前三个月Active Development，后三个月Test&Polish</li>
+							<li>下一个版本启动计划时间：7月15日和1月15日</li>
+							<li>2-3个beta版本，1-2个rc版本和最终的release版本</li>
+							<li>当前release版本维护通过一系列的minor版本体现</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">Go适合做什么</h4>
+						<ul>
+							<li>服务器编程</li>
+							<li>分布式系统</li>
+							<li>网络编程</li>
+							<li>内存数据库</li>
+							<li>云平台</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3 style="text-transform: none;">2. Go Feature</h3>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">特性</h4>
+						<ul>
+							<li>代码风格规范</li>
+							<li>自动垃圾回收</li>
+							<li>错误处理规范</li>
+							<li>语法简单，上手容易</li>
+							<li>天生异步</li>
+							<li>...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">开发体验</h4>
+						<ul>
+							<li>不过多的隐藏技术细节，减少开发时的心智负担</li>
+							<li>自带的标准包满足绝大多数后端开发需求，后发优势</li>
+							<li>低成本的gorountine撑着，可以规避掉进程和线程的相关问题</li>
+							<li>部署方便，省心</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">目前存在的问题</h4>
+						<ul>
+							<li>暂时没有工程化的IDE支持（目前IntelliJ已经在开发）</li>
+							<li>目前没有官方标准包管理工具（目前官方正在完善开发中）
+								<p>import包不支持版本，升级容易导致项目不可运行</p>
+							</li>
+							<li>网络问题（GFW）</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">特殊的面向对象方式</h4>
+						<p>没有class，没有 this</p>
+						<p>所有和 class 相关的，比如构造函数、虚拟函数都是没有的。</p>
+						<p>没有继承，只有组合</p>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">特殊的interface</h4>
+						<p>type不需要声明他们具体要实现的某个interface</p>
+						<p>任何想要实现interface的type仅需提供与interface声明所匹配的方法</p>
+					</section>
+
+					<section>
+						<h4 style="text-transform: none;">Gorountine & Channel</h4>
+						<p>Don't communicate by sharing memory, share memory by communicating.</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3 style="text-transform: none;">3. Go的生态</h3>
+						<p>为微服务而生</p>
+					</section>
+
+					<section>
+						<h5 style="text-transform: none;">成熟的Go项目</h5>
+						<ul>
+							<li>Docker</li>
+							<li>Kubernates(k8s)</li>
+							<li>Tidb(分布式NewSQL，强一致性的分布式事务)</li>
+							<li>Grpc</li>
+							<li>Grafana</li>
+							<li>Prometheus</li>
+							<li>...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h5 style="text-transform: none;">例子 -- 服务注册发现</h5>
+						<p>Go的技术栈</p>
+						<ul>
+							<li>Grpc</li>
+							<li>Prometheus</li>
+							<li>etcd</li>
+						</ul>
+						<p>JAVA的技术栈</p>
+						<ul>
+							<li>Netfix Eureka</li>
+							<li>Spring Boot</li>
+						</ul>
+						<p>Spring Cloud还有熔断器Hystrix，边缘服务Zuul等一系统套件</p>
+					</section>
+
+				</section>
+
+				<section>谢谢</section>
+			</div>
+		</div>
+
+		<script src="http://cdn.staticfile.org/reveal.js/3.3.0/lib/js/head.min.js"></script>
+		<script src="http://cdn.staticfile.org/reveal.js/3.3.0/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
